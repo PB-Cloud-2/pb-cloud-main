@@ -1,0 +1,34 @@
+
+server:
+   servlet:
+      context-path: /permaisuri
+spring:
+   jackson:
+      default-property-inclusion: non_null
+      serialization.indent_output: true
+   data:
+      web:
+         pageable:
+            default-page-size: 10
+            max-page-size: 100
+            one-indexed-parameters: true
+            size-parameter: size
+            sort-parameter: sort
+            prefix: $paging
+   thymeleaf:
+      prefix: /WEB-INF/templates/
+      suffix: .html
+   datasource:
+      url: jdbc:postgresql://localhost:5432/dbpermaisuricloud
+      username: dbexerphi_dba
+      password: admin
+   jpa:
+      database-platform: org.hibernate.dialect.PostgreSQL82Dialect
+      show-sql: false
+      hibernate:
+         ddl-auto: create
+      properties:
+         hibernate:
+            format_sql: true
+   profiles:
+      active: testing
